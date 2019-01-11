@@ -1,0 +1,202 @@
+{
+  "name": "node-react-redux-base",
+  "version": "0.12.0",
+  "author": [
+    "wangyanjun",
+    "yaohaiyang",
+    "zhangzhaoyang"
+  ],
+  "description": "node-react-redux-base",
+  "keywords": [
+    "react",
+    "router",
+    "redux",
+    "immutable",
+    "webpack"
+  ],
+  "scripts": {
+    "clean": "rimraf ./public/dist",
+    "dll": "webpack --progress --colors --config ./build/webpack.config.dll.babel.js",
+    "generate-env": "node ./build/setup-env.js",
+    "prebuild": "npm run clean && npm run generate-env",
+    "build": "webpack --progress --colors --config ./build/webpack.build.babel.js",
+    "postbuild": "sh ./build/to-dist.sh",
+    "prestart": "cross-env NODE_ENV=development npm run generate-env && npm run clean",
+    "start": "nodemon ./bin/www",
+    "start:beta": "NODE_ENV=beta node ./dist/bin/www",
+    "start:prod": "NODE_ENV=production node ./dist/bin/www",
+    "git-branch": "node ./build/git-branch.js",
+    "test": "nyc node node_modules/.bin/ava",
+    "test-watch": "npm run test -- --watch",
+    "check-coverage": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100 npm test",
+    "lint:css": "stylelint \"client/**/*.scss\"",
+    "lint:js": "eslint client server common scripts",
+    "lint": "npm-run-all --parallel lint:*",
+    "fix:css": "stylelint --fix \"client/**/*.scss\"",
+    "fix:js": "eslint --fix client server build common *.js",
+    "fix": "npm-run-all --parallel fix:*",
+    "validate": "node ./build/validate-code.js",
+    "css-prefix": "node ./build/css-prefix.js",
+    "precommit": "lint-staged"
+  },
+  "dependencies": {
+    "antd": "^3.12.1",
+    "babel-plugin-import": "^1.11.0",
+    "body-parser": "^1.18.3",
+    "classnames": "^2.2.6",
+    "compression": "^1.7.3",
+    "cookie-parser": "^1.4.3",
+    "dva": "^2.4.0",
+    "dva-loading": "^2.0.5",
+    "express": "^4.16.3",
+    "handlebars": "^4.0.12",
+    "hbs": "^4.0.1",
+    "helmet": "^3.13.0",
+    "history": "^4.7.2",
+    "immutable": "^3.8.2",
+    "ip": "^1.1.5",
+    "isomorphic-fetch": "^2.2.1",
+    "moment": "^2.22.2",
+    "multer": "^1.3.1",
+    "node-sass": "^4.11.0",
+    "on-finished": "^2.3.0",
+    "perfect-css": "^0.3.5",
+    "prop-types": "^15.6.2",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0",
+    "react-loadable": "^5.5.0",
+    "react-perfect-component": "0.0.3",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "react-tap-event-plugin": "^3.0.3",
+    "react-transition-group": "^2.4.0",
+    "request": "^2.88.0",
+    "sass-loader": "^7.1.0",
+    "serialize-javascript": "^1.5.0",
+    "serve-favicon": "^2.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.1",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-transform-react-constant-elements": "^7.0.0",
+    "@babel/plugin-transform-react-inline-elements": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.0.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "autoprefixer": "^9.1.5",
+    "ava": "^1.0.0-beta.8",
+    "babel-eslint": "^9.0.0",
+    "babel-loader": "^8.0.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.15",
+    "browserslist": "^4.1.1",
+    "chalk": "^2.4.1",
+    "cross-env": "^5.2.0",
+    "css-loader": "^1.0.0",
+    "cssnano": "^4.1.0",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
+    "eruda": "^1.5.3",
+    "eslint": "^5.5.0",
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-loader": "^2.1.0",
+    "eslint-plugin-ava": "^5.1.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-react": "^7.11.0",
+    "file-loader": "^2.0.0",
+    "husky": "^0.14.3",
+    "incstr": "^1.2.3",
+    "jsdom": "^12.0.0",
+    "lint-staged": "^7.2.2",
+    "mini-css-extract-plugin": "^0.4.2",
+    "mock-css-modules": "^1.0.0",
+    "nock": "^9.6.1",
+    "node-sass-vendor": "^4.9.4",
+    "nodemon": "^1.18.4",
+    "npm-run-all": "^4.1.3",
+    "nyc": "^13.0.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "postcss-flexbugs-fixes": "^4.1.0",
+    "postcss-loader": "^3.0.0",
+    "prettier": "^1.14.2",
+    "redux-logger": "^3.0.6",
+    "resolve-url-loader": "^2.3.1",
+    "rimraf": "^2.6.2",
+    "sass-loader-joy-vendor": "^7.1.2",
+    "sinon": "^6.3.1",
+    "style-loader": "^0.23.0",
+    "stylelint": "^9.5.0",
+    "stylelint-config-ultimate": "^0.2.2",
+    "stylelint-scss": "^3.3.0",
+    "svg-url-loader": "^2.3.2",
+    "uglifyjs-webpack-plugin": "^1.3.0",
+    "url-loader": "^1.1.1",
+    "webpack": "^4.18.0",
+    "webpack-bundle-analyzer": "^3.0.2",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-middleware": "^3.3.0",
+    "webpack-hot-middleware": "^2.23.1",
+    "webpack-manifest-plugin": "^2.0.4"
+  },
+  "engines": {
+    "node": ">=6.9.1"
+  },
+  "lint-staged": {
+    "linters": {
+      "*.{scss,js}": [
+        "npm run validate"
+      ],
+      "*.{js,md}": [
+        "prettier --trailing-comma es5 --single-quote --write",
+        "git add"
+      ]
+    },
+    "ignore": [
+      ".eslintrc.js"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:joy-web/node-react-redux-base.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joy-web/react-redux-router-base/issues"
+  },
+  "homepage": "https://github.com/joy-web/react-redux-router-base#readme",
+  "ava": {
+    "files": [
+      "client/**/*.spec.js"
+    ],
+    "source": [
+      "client/**/*.js"
+    ],
+    "concurrency": 5,
+    "failFast": true,
+    "failWithoutAssertions": false,
+    "tap": true,
+    "powerAssert": false,
+    "babel": "inherit",
+    "require": [
+      "./setup-test-env.js"
+    ]
+  },
+  "nyc": {
+    "include": [
+      "client/**/*.js"
+    ],
+    "exclude": [
+      "client/**/*.spec.js"
+    ],
+    "reporter": [
+      "lcov",
+      "text",
+      "html"
+    ],
+    "cache": true
+  }
+}

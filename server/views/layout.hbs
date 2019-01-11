@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <!--360浏览器-->
+    <meta name="renderer" content="webkit">
+    <!--其它双核浏览器-->
+    <meta name="force-rendering" content="webkit">
+    <!--如果安装了GCF，则使用GCF来渲染页面，如果没有安装GCF，则使用最高版本的IE内核进行渲染。-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <!-- viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--删除 IOS 默认的工具栏和菜单栏-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--作用是控制状态栏显示样式，可选default、black、black-translucent-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--禁止ios上自动识别电话-->
+    <meta name="format-detection" content="telephone=no">
+    <!--禁止android上自动识别邮箱-->
+    <meta name="format-detection" content="email=no">
+    <link rel="icon" href="{{{URL_CONTEXT}}}/favicon.ico" type="image/x-icon">
+
+    <!-- dsn 预加载 -->
+
+    <!--系统样式文件-->
+    {{{links}}}
+  </head>
+  <body>
+    <div id="layout"></div>
+
+    {{{body}}}
+    <!--服务端渲染的首屏初始值 -->
+    <script>{{{scriptHtml}}}</script>
+
+    <!--页面用到的 js -->
+    {{{scripts}}}
+
+    <!-- 数据平台-埋点，区分环境，不同环境埋点不一样，需要后台配置 appid 和 appkey-->
+    <!--{{#if isProd}}-->
+      <!--<script src="//bdc.jd.com/dist/track.min.js" name="MTK" appid="xxx" appkey="xxx" async></script>-->
+    <!--{{else}}-->
+      <!--<script src="//172.24.6.81:8888/dist/track.min.js" name="MTK" appid="xxx" appkey="xxx" async></script>-->
+    <!--{{/if}}-->
+    <!-- 异步引入前端异常监控脚本-->
+    <script async src="https://error-free.jd.com/track/stat.js" crossorigin="anonymous" ></script>
+  </body>
+</html>

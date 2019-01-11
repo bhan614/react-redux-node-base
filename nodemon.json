@@ -1,0 +1,29 @@
+{
+  "restartable": "rs",
+  "ignore": [
+    ".git",
+    ".gitignore",
+    "README.md",
+    "CHANGELOG.md",
+    "nodemon.json",
+    "build/webpack*",
+    "node_modules/*",
+    "bin/*",
+    "client/*",
+    "scripts/*",
+    "public/*"
+  ],
+  "verbose": true,
+  "execMap": {
+    "js": "node --harmony"
+  },
+  "watch": [
+    "common",
+    "server",
+    "webpack.config.dev.babel.js"
+  ],
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "ext": "js json"
+}
