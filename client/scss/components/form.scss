@@ -1,6 +1,7 @@
 .form-group {
   margin-bottom: 1rem;
 }
+
 .form-control {
   display: block;
   width: 100%;
@@ -13,11 +14,11 @@
   background-color: #fff;
   background-image: none;
   background-clip: padding-box;
-  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 
 .col-form-label {
-  padding-top: calc(0.5rem - 1px * 2);
-  padding-bottom: calc(0.5rem - 1px * 2);
+  padding-top: calc(.5rem - 1px * 2);
+  padding-bottom: calc(.5rem - 1px * 2);
   margin-bottom: 0;
 }

@@ -11,10 +11,10 @@
 }
 
 .col {
-  -webkit-box-flex: 1; /*老的 Flexbox 相当于新规范 felx 属性*/
-  -ms-flex-preferred-size: 0; /*ie10需要设置该属性，相当于flex-basis的作用*/
+  -webkit-box-flex: 1; /* 老的 Flexbox 相当于新规范 felx 属性 */
+  -ms-flex-preferred-size: 0; /* ie10需要设置该属性，相当于flex-basis的作用 */
   flex-basis: 0;
-  -ms-flex-positive: 1; /*ie10需要设置该属性，相当于flex-grow的作用*/
+  -ms-flex-positive: 1; /* ie10需要设置该属性，相当于flex-grow的作用 */
   flex-grow: 1;
   max-width: 100%;
 }

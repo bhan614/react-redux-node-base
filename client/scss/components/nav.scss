@@ -7,7 +7,7 @@
 
 .nav-link {
   display: block;
-  padding: 0.5em 1em;
+  padding: .5em 1em;
 }
 
 .nav-link:focus, .nav-link:hover {
@@ -24,8 +24,8 @@
 
 .nav-tabs .nav-link {
   border: 1px solid transparent;
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
 }
 
 .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
@@ -39,7 +39,7 @@
 }
 
 .nav-pills .nav-link {
-  border-radius: 0.25rem;
+  border-radius: .25rem;
 }
 
 .nav-pills .nav-link.active {
